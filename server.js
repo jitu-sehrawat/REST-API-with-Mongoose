@@ -21,14 +21,7 @@ app.get('/accounts', (req, res, next) => {
     res.send(accounts)
   })
 })
-/*
-app.param('id', (req, res, next) => { // OPTIONALLY: you can use middleware to fetch account object
-  Account.findById(req.params.id, (error, account) => {
-    req.account = account
-    next()
-  })
-})
-*/
+
 app.get('/accounts/:id', (req, res, next) => {
   Account.findById(req.params.id, (error, account) => {
     if (error) return next(error)
